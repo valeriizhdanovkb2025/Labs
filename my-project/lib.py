@@ -1,2 +1,3 @@
 def greet(name: str) -> str:
-    return f"Вітаю в додатковому завданні, {name}!"
+    return f"Вітаю в моєму коді, {name}!"
+
