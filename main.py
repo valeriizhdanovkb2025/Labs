@@ -1,12 +1,21 @@
 import re
 from typing import List
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select, SQLModel
 
 from database import engine, get_session
 from models import Product
 
 app = FastAPI(title="Ceramics Production API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 def startup():
@@ -38,8 +47,8 @@ def create_product(product: Product, session: Session = Depends(get_session)):
 
 @app.put("/products/{product_id}", response_model=Product)
 def update_product(product_id: int, updated_product: Product, session: Session = Depends(get_session)):
-    if not re.match(r"^SKU-\d{4}$", updated_product.sku):
-        raise HTTPException(status_code=400, detail="Невірний формат SKU.")
+    if updated_product.sku and not re.match(r"^SKU-\d{4}$", updated_product.sku):
+        raise HTTPException(status_code=400, detail="Невірний формат SKU. Повинно бути у форматі SKU-XXXX.")
 
     db_product = session.get(Product, product_id)
     if not db_product:
