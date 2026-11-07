@@ -1,0 +1,247 @@
+/* внутрішні відступи і рамки не збільшували загальну ширину блоку */
+* {
+	box-sizing: border-box;
+}
+/* - відступи, шрифт, розмір шрифту, інтервал і колір */
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #222;
+	background-color: #f5f6fa;
+}
+/* Обмеження ширини до 1100 пікселів і центрування */
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 16px;
+}
+
+/* Шапка */
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 16px 24px;
+	background-color: #1a3a8f;
+	color: white;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+	.header h1 {
+		margin: 0;
+		font-size: 24px;
+	}
+
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+	/* Стилізація посилань */
+	.nav a {
+		color: white;
+		text-decoration: none;
+		font-weight: bold;
+		transition: opacity 0.2s;
+	}
+
+		.nav a:hover {
+			text-decoration: underline;
+			opacity: 0.85;
+		}
+
+/* 3. Контент та розділи */
+main {
+	padding: 24px 16px;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+/* Картки */
+.sections {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+}
+
+.section {
+	background-color: white;
+	border-radius: 8px;
+	padding: 24px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	margin-bottom: 20px;
+}
+
+/* 4. Зображення */
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	display: block;
+	margin: 12px 0;
+}
+
+figure {
+	margin: 16px 0;
+}
+
+figcaption {
+	font-style: italic;
+	color: #666;
+	font-size: 14px;
+	margin-top: 6px;
+}
+
+/* 5. Таблиця та обгортка для гориз. прокручування */
+.table-wrapper {
+	overflow-x: auto;
+	margin-top: 12px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 600px;
+}
+
+th, td {
+	padding: 12px;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+
+th {
+	background-color: #1a3a8f;
+	color: white;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f7f7f7;
+}
+
+tbody tr:hover {
+	background-color: #eef3ff;
+}
+
+/* 6. Форма та поля */
+.form {
+	margin-top: 12px;
+}
+
+	.form label {
+		display: block;
+		margin-top: 12px;
+		font-weight: bold;
+	}
+
+	.form input,
+	.form select {
+		width: 100%;
+		padding: 10px;
+		margin-top: 4px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 15px;
+	}
+
+		.form input:focus,
+		.form select:focus {
+			outline: none;
+			border-color: #1a3a8f;
+			box-shadow: 0 0 0 3px rgba(26, 58, 143, 0.15);
+		}
+
+/* Чекбокс */
+.checkbox-label {
+	display: flex !important;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
+	.checkbox-label input[type="checkbox"] {
+		width: auto;
+		margin-top: 0;
+	}
+
+/* 7. Кнопка з анімацією та псевдокласами */
+.btn {
+	color: white;
+	background-color: #1a3a8f;
+	border: 2px solid #12296b;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 12px 24px;
+	margin-top: 20px;
+	width: 100%;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.1s;
+	animation: fade-in 0.5s ease-out;
+}
+
+	.btn:hover {
+		background-color: #12296b;
+	}
+
+	.btn:active {
+		transform: scale(0.98);
+	}
+
+	.btn:focus {
+		outline: 3px solid #9bb4ff;
+	}
+
+/* Анімації появи */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* 8. Кінцева */
+.footer {
+	margin-top: 32px;
+	padding: 20px;
+	background-color: #12296b;
+	color: white;
+	text-align: center;
+}
+
+/* 9. Силки */
+@media (min-width: 768px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.sections {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	body {
+		font-size: 17px;
+	}
+		
+	.btn {
+		width: auto;
+	}
+}
+
+@media (min-width: 1024px) {
+	.sections {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

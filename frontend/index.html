@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+    <title>Виробництво керамічних виробів</title>
+</head>
+<body>
+    <!--Меню-->
+    <header class="header">
+        <h1>Виробництво керамічних виробів</h1>
+        <nav class="nav">
+            <a href="#about">Про кераміку</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#add">Додати виріб</a>
+            <a href="#links">Корисні посилання</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!--Про кераміку-->
+        <section id="about" class="section">
+            <h2>Виробництво керамічних виробів</h2>
+            <p>
+                Виробництво керамічних виробів — це одне з найдавніших ремесел людства, яке поєднує в собі мистецтво,
+                традиції та сучасні технології. Основною сировиною для виготовлення слугує глина з різними мінеральними добавками.
+            </p>
+            <h3>Про гончарство та кераміку</h3>
+            <p>
+                Процес створення керамічного виробу складається з кількох послідовних етапів: формування,
+                сушіння, первинного випалу, нанесення поливи (глазурі) та повторного випалу при високих температурах.
+            </p>
+
+            <h3>Основні види кераміки</h3>
+            <p>
+                Залежно від складу глини та температури випалу керамічні вироби поділяють на <mark>
+                    гончарну кераміку,
+                    теракоту, майоліку, фаянс та порцеляну
+                </mark>.
+            </p>
+
+            <p>
+                Сучасна кераміка використовується не лише у побуті, а й у промисловості.
+                <em>Технічна кераміка</em> володіє високою <strong>термостійкістю</strong>, <strong>міцністю</strong> та <strong>ізоляційними властивостями</strong>.
+            </p>
+
+            <h2>Переваги керамічних виробів</h2>
+            <ul>
+                <li>Екологічність та безпечність для здоров'я</li>
+                <li>Довговічність та стійкість до високих температур</li>
+                <li>Естетична цінність та унікальність кожної речі</li>
+                <li>Широкий спектр застосування — від посуду до промисловості</li>
+            </ul>
+
+            <h2>Етапи виготовлення виробу</h2>
+            <ol>
+                <li>Підготовка та замішування глиняної маси</li>
+                <li>Формування виробу на гончарному крузі або у формах</li>
+                <li>Попереднє сушіння на повітрі</li>
+                <li>Випал у спеціальній печі при температурі 900–1200°C</li>
+            </ol>
+
+            <!--Зображення-->
+            <figure>
+                <img src="img/goncharstvo.jpg" alt="Виготовлення керамічного глечика на гончарному крузі" width="400">
+                <figcaption>Процес формування глечика на гончарному крузі</figcaption>
+            </figure>
+
+            <figure>
+                <img src="img/Vase.jpg" alt="Декоративна керамічна ваза" width="400">
+                <figcaption>Декоративна керамічна ваза</figcaption>
+            </figure>
+        </section>
+
+        <!--Таблиця-->
+        <section id="catalog" class="section">
+            <h2>Каталог виробів</h2>
+            <div class="table-wrapper">
+                <table border="1">
+                    <caption>Реєстр керамічної продукції</caption>
+                    <thead>
+                        <tr>
+                            <th>Назва</th>
+                            <th>Тип</th>
+                            <th>Рік виготовлення</th>
+                            <th>Ціна (грн)</th>
+                            <th>Призначення</th>
+                            <th>Є типовим</th>
+                            <th>Дії</th>
+                        </tr>
+                    </thead>
+                    <tbody id="catalog-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!--Додавання виробу-->
+        <section id="add" class="section">
+            <h2>Додати новий виріб</h2>
+            <form class="form">
+                <label for="name">Назва виробу</label>
+                <input type="text" id="name" name="name">
+
+                <label for="type">Тип кераміки</label>
+                <input type="text" id="type" name="type">
+
+                <label for="year">Рік виготовлення</label>
+                <input type="number" id="year" name="year" min="1900" max="2026" value="2026">
+
+                <label for="price">Ціна (грн)</label>
+                <input type="number" id="price" name="price" min="0" step="0.5">
+
+                <label for="purpose">Призначення</label>
+                <select id="purpose" name="purpose">
+                    <option>побутове</option>
+                    <option>декоративне</option>
+                    <option>технічне</option>
+                </select>
+
+                <label for="is_typical" class="checkbox-label">
+                    <input type="checkbox" id="is_typical" name="is_typical">
+                    Є типовим виробом
+                </label>
+                <button type="submit" class="btn">Додати виріб</button>
+            </form>
+            <p id="message" style="margin-top: 10px; font-weight: bold;"></p>
+        </section>
+        <!--Корисні посилання-->
+        <section id="links" class="section">
+            <h2>Корисні посилання</h2>
+            <ul>
+                <li><a href="https://uk.wikipedia.org/wiki/Кераміка" target="_blank">Кераміка у Вікіпедії</a></li>
+                <li><a href="https://opishne-museum.gov.ua" target="_blank">Національний музей гончарства</a></li>
+                <li><a href="https://www.youtube.com/watch?v=ycZuNUbe6ZQ" target="_blank">Сергій Столярук. Про гончарство: технологія</a></li>
+            </ul>
+        </section>
+
+        <!--Часті запитання-->
+        <section id="faq" class="section">
+            <h2>Часті запитання</h2>
+            <details>
+                <summary>Як доглядати за керамікою?</summary>
+                <p>Більшість керамічного посуду можна мити в посудомийній машині, але речі з ручним розписом краще мити вручну.</p>
+            </details>
+            <details>
+                <summary>Чим відрізняється фаянс від порцеляни?</summary>
+                <p>Порцеляна випалюється при вищих температурах, вона <mark>біла, тонша і просвічується</mark> на світлі.</p>
+            </details>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <address>Кафедра БІТ, Національний університет "Львівська політехніка"</address>
+        <p>Виробництво керамічних виробів, 2026</p>
+    </footer>
+</body>
+</html>
