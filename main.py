@@ -182,7 +182,7 @@ def remove_item(item_id: int):
             return items.pop(index)
     raise HTTPException(status_code=404, detail="Запис не знайдено")
 
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory="dist", html=True), name="dist")
 
 
 # http://127.0.0.1:8000/docs
